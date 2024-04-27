@@ -116,6 +116,24 @@ deleteButton.addEventListener("click", async function (event) {
       });
       return;
     }
+    if (status === 401) {
+      if (data === "El token ha expirado") {
+        Swal.fire({
+          title: "Error",
+          text: "El token ha expirado, vuelve a iniciar sesion",
+          icon: "error",
+        });
+        return;
+      }
+      if (data === "Token inválido") {
+        Swal.fire({
+          title: "Error",
+          text: "Token inválido",
+          icon: "error",
+        });
+        return;
+      }
+    }
     if (status === 500 && data === "Error al borrar la imagen") {
       Swal.fire({
         title: "Error",
@@ -126,7 +144,7 @@ deleteButton.addEventListener("click", async function (event) {
     }
     Swal.fire({
       title: "Error",
-      text: "Error al borrar la imagen",
+      text: "Error al borrar al usuario",
       icon: "error",
     });
   }

@@ -26,13 +26,20 @@ Repositorio con el código solución de la prueba con la que se finaliza el mód
       - [4.2.Verificación Cambio de estado exitoso de participante por Admin Front End](#42verificación-cambio-de-estado-exitoso-de-participante-por-admin-front-end)
       - [4.3.Verificación Cambio de estado exitoso de participante por Admin Back End](#43verificación-cambio-de-estado-exitoso-de-participante-por-admin-back-end)
     - [5.Alerta de Eliminación de Participante exitosa](#5alerta-de-eliminación-de-participante-exitosa)
-      - [5.1. Verificación de Eliminación de participante Front End](#51-verificación-de-eliminación-de-participante-front-end)
-      - [5.2. Verificación de Eliminación de participante Back End](#52-verificación-de-eliminación-de-participante-back-end)
+      - [5.1.Verificación de Eliminación de participante Front End](#51verificación-de-eliminación-de-participante-front-end)
+      - [5.2.Verificación de Eliminación de participante Back End](#52verificación-de-eliminación-de-participante-back-end)
+    - [6.Alerta Archivo Muy Pesado](#6alerta-archivo-muy-pesado)
+    - [7.Alerta Tipo de Archivo No Permitido](#7alerta-tipo-de-archivo-no-permitido)
+    - [8.Alerta password y password repetida no coinciden](#8alerta-password-y-password-repetida-no-coinciden)
+    - [9.Página 404](#9página-404)
   - [Soluciones](#soluciones)
     - [1. Crear una API REST con el Framework Express (3 Puntos)](#1-crear-una-api-rest-con-el-framework-express-3-puntos)
     - [2. Servir contenido dinámico con express-handlebars (3 Puntos)](#2-servir-contenido-dinámico-con-express-handlebars-3-puntos)
     - [3. Ofrecer la funcionalidad Upload File con express-fileupload (2 Puntos)](#3-ofrecer-la-funcionalidad-upload-file-con-express-fileupload-2-puntos)
     - [4. Implementar seguridad y restricción de recursos o contenido con JWT (2 Puntos)](#4-implementar-seguridad-y-restricción-de-recursos-o-contenido-con-jwt-2-puntos)
+  - [Extra](#extra)
+    - [1. Ruta para resetear la data en la base de datos y borrar las imagenes](#1-ruta-para-resetear-la-data-en-la-base-de-datos-y-borrar-las-imagenes)
+    - [2. Script para resetear la data cada 30 minutos](#2-script-para-resetear-la-data-cada-30-minutos)
 
 ## Deploy
 
@@ -114,13 +121,29 @@ El proyecto es 100% funcional y esta operativo en la web. Lo he desplegado en Re
 
 ![Alerta de Eliminación de Participante exitosa](./screenshots/5.alerta_eliminacion_participante.webp)
 
-#### 5.1. Verificación de Eliminación de participante Front End
+#### 5.1.Verificación de Eliminación de participante Front End
 
 ![Verificación de Eliminación de participante Front End](./screenshots/5.1verificacion_eliminacion_participante_front.webp)
 
-#### 5.2. Verificación de Eliminación de participante Back End
+#### 5.2.Verificación de Eliminación de participante Back End
 
 ![Verificación de Eliminación de participante Back End](./screenshots/5.2verificacion_eliminacion_participante_back.png)
+
+### 6.Alerta Archivo Muy Pesado
+
+![Alerta Archivo Muy Pesado](./screenshots/alerta_imagen_supera_limite.webp)
+
+### 7.Alerta Tipo de Archivo No Permitido
+
+![Alerta Tipo de Archivo No Permitido](./screenshots/alerta_tipo_archivo_no_permitido.webp)
+
+### 8.Alerta password y password repetida no coinciden
+
+![Alerta password y password repetida no coinciden](./screenshots/alerta_password_no_iguales.webp)
+
+### 9.Página 404
+
+![Página 404](./screenshots/pagina_404.webp)
 
 ## Soluciones
 
@@ -353,4 +376,66 @@ export default async function deleteParticipante(req, res) {
     res.status(500).send(error);
   }
 }
+```
+
+## Extra
+
+### 1. Ruta para resetear la data en la base de datos y borrar las imagenes
+
+He creado la siguiente ruta **reset** siguiente:
+
+```js
+router.get("/reset", resetData);
+```
+
+La cual utiliza el siguiente middleware:
+
+```js
+export default async function resetData(req, res) {
+  try {
+    const data = await resetDataQuery();
+    if (data === "exito") {
+      const files = await fs.readdir(path.resolve("public", "imagenes"));
+      for (const file of files) {
+        await fs.unlink(path.resolve("public", "imagenes", file));
+      }
+      res.status(200).send("Data Reseteada con exito !");
+    }
+  } catch (error) {
+    res.status(500).send(error);
+  }
+}
+```
+
+La que a su vez utiliza la siguiente función **resetDataQuery**:
+
+```js
+export default async function resetDataQuery() {
+  try {
+    const query = "DELETE FROM prueba_skate_park_skaters;";
+    await pool.query(query);
+    return "exito";
+  } catch (error) {
+    throw error;
+  }
+}
+```
+
+### 2. Script para resetear la data cada 30 minutos
+
+```js
+setInterval(async () => {
+  try {
+    const data = await resetDataQuery();
+    if (data === "exito") {
+      const files = await fs.readdir(path.resolve("public", "imagenes"));
+      for (const file of files) {
+        await fs.unlink(path.resolve("public", "imagenes", file));
+      }
+      console.log("Data Reseteada con exito !");
+    }
+  } catch (error) {
+    console.log("Error al resetear la data", error.message);
+  }
+}, 1800000);
 ```
