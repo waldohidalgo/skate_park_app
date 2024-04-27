@@ -4,6 +4,40 @@ Repositorio con el código solución de la prueba con la que se finaliza el mód
 
 ## Tabla de Contenido
 
+- [Solución Completa de la Prueba - Skate Park](#solución-completa-de-la-prueba---skate-park)
+  - [Tabla de Contenido](#tabla-de-contenido)
+  - [Deploy](#deploy)
+  - [Requisitos](#requisitos)
+  - [Diagrama de Flujo](#diagrama-de-flujo)
+    - [1.Página Home](#1página-home)
+    - [2.Página Registro](#2página-registro)
+      - [2.1.Registro de Participante Exitoso](#21registro-de-participante-exitoso)
+      - [2.2.Verificación de Registro exitoso de Participante Exitoso Front End](#22verificación-de-registro-exitoso-de-participante-exitoso-front-end)
+      - [2.3.Verificación de Registro exitoso de Participante Exitoso Back End](#23verificación-de-registro-exitoso-de-participante-exitoso-back-end)
+    - [3.Página LogIn de Participante](#3página-login-de-participante)
+      - [3.1.LogIn exitoso de Participante](#31login-exitoso-de-participante)
+      - [3.2.Página Cuenta de Usuario](#32página-cuenta-de-usuario)
+      - [3.3.Token Expirado después de 2 minutos](#33token-expirado-después-de-2-minutos)
+      - [3.4.Alerta Edición exitosa](#34alerta-edición-exitosa)
+      - [3.5.Verificación edición exitosa front end](#35verificación-edición-exitosa-front-end)
+      - [3.6.Verificación edición exitosa back end](#36verificación-edición-exitosa-back-end)
+    - [4.Página Admin](#4página-admin)
+      - [4.1.Alerta Cambio de estado exitoso de participante por Admin](#41alerta-cambio-de-estado-exitoso-de-participante-por-admin)
+      - [4.2.Verificación Cambio de estado exitoso de participante por Admin Front End](#42verificación-cambio-de-estado-exitoso-de-participante-por-admin-front-end)
+      - [4.3.Verificación Cambio de estado exitoso de participante por Admin Back End](#43verificación-cambio-de-estado-exitoso-de-participante-por-admin-back-end)
+    - [5.Alerta de Eliminación de Participante exitosa](#5alerta-de-eliminación-de-participante-exitosa)
+      - [5.1. Verificación de Eliminación de participante Front End](#51-verificación-de-eliminación-de-participante-front-end)
+      - [5.2. Verificación de Eliminación de participante Back End](#52-verificación-de-eliminación-de-participante-back-end)
+  - [Soluciones](#soluciones)
+    - [1. Crear una API REST con el Framework Express (3 Puntos)](#1-crear-una-api-rest-con-el-framework-express-3-puntos)
+    - [2. Servir contenido dinámico con express-handlebars (3 Puntos)](#2-servir-contenido-dinámico-con-express-handlebars-3-puntos)
+    - [3. Ofrecer la funcionalidad Upload File con express-fileupload (2 Puntos)](#3-ofrecer-la-funcionalidad-upload-file-con-express-fileupload-2-puntos)
+    - [4. Implementar seguridad y restricción de recursos o contenido con JWT (2 Puntos)](#4-implementar-seguridad-y-restricción-de-recursos-o-contenido-con-jwt-2-puntos)
+
+## Deploy
+
+El proyecto es 100% funcional y esta operativo en la web. Lo he desplegado en Render en el siguiente [link](https://skate-park-app.onrender.com/)
+
 ## Requisitos
 
 ![Requisitos 1 y 2](./screenshots/requisitos_1_2.webp)
