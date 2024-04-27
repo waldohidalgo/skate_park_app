@@ -1,0 +1,21 @@
+.page_login_main {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.login_page_form {
+  max-width: 300px;
+  margin-inline: auto;
+}
+
+.login_page_form_label {
+  width: 95px;
+  display: flex;
+  justify-content: center;
+}
+
+.page_login_register_no_account {
+  margin-inline: auto;
+  padding: 10px;
+  width: fit-content;
+  background-color: white;
+}

@@ -1,0 +1,62 @@
+{{> header}}
+<main class="py-3 main_page_admin">
+  <h2>Administración</h2>
+  <hr class="w-50" />
+  <div class="table-responsive">
+    <table class="table w-50 m-auto table-dark">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Foto</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Años de experiencia</th>
+          <th scope="col">Especialidad</th>
+          <th scope="col">Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#if ( arrayVacio participantes) }}
+        <tr>
+          <td colspan="6">No hay participantes</td>
+        </tr>
+        {{else}}
+        {{#each participantes}}
+        <tr>
+          <th scope="row">{{addOne @index}}</th>
+          <td>
+            <div class="participante_foto">
+              <img
+                src="/public/imagenes/{{ this.foto }}"
+                alt="Imagen de {{ this.nombre }}"
+              />
+            </div>
+          </td>
+          <td>{{ this.nombre }}</td>
+          <td>{{ this.anos_experiencia }}</td>
+          <td>{{ this.especialidad }}</td>
+          <td>
+            {{#if this.estado }}
+            <input
+              data-email="{{ this.email }}"
+              class="aprobado_checkbox"
+              type="checkbox"
+              checked
+            />
+            {{else}}
+            <input
+              data-email="{{ this.email }}"
+              class="aprobado_checkbox"
+              type="checkbox"
+            />
+            {{/if}}
+          </td>
+        </tr>
+        {{/each}}
+        {{/if}}
+      </tbody>
+    </table>
+  </div>
+</main>
+{{> footer}}
+
+<script type="module" src="/public/js/pages/admin.js"></script>

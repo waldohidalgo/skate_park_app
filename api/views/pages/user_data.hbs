@@ -1,0 +1,89 @@
+{{> header}}
+<main>
+  <div class="py-4 container main_page_user_data"></div>
+  <h2>Datos del perfil</h2>
+  <hr class="w-50" />
+
+  <form class="mb-0" id="user_data_form">
+    <div class="form-group row w-50 m-auto">
+      <div class="form-group col-12 col-sm-6">
+        <label for="user_email">Email</label>
+        <input
+          name="email"
+          id="user_email"
+          type="email"
+          class="form-control m-auto"
+          disabled
+          value="{{ user.email }}"
+          required
+        />
+      </div>
+      <div class="form-group col-12 col-sm-6">
+        <label>Nombre</label>
+        <input
+          name="nombre"
+          class="form-control m-auto"
+          value="{{ user.nombre }}"
+          required
+        />
+      </div>
+      <div class="form-group col-12 col-sm-6">
+        <label>Password</label>
+        <input
+          name="password"
+          type="text"
+          class="form-control m-auto"
+          value="{{ user.password }}"
+          required
+        />
+      </div>
+      <div class="form-group col-12 col-sm-6">
+        <label>Repita la password</label>
+        <input
+          name="password2"
+          type="text"
+          class="form-control m-auto"
+          value="{{ user.password }}"
+          required
+        />
+      </div>
+      <div class="form-group col-12 col-sm-6">
+        <label>Años de experiencia</label>
+        <input
+          name="anos_experiencia"
+          type="number"
+          min="0"
+          class="form-control m-auto"
+          value="{{ user.anos_experiencia }}"
+          required
+        />
+      </div>
+      <div class="form-group col-12 col-sm-6">
+        <label>Especialidad</label>
+        <input
+          name="especialidad"
+          type="text"
+          class="form-control m-auto"
+          value="{{ user.especialidad }}"
+          required
+        />
+      </div>
+    </div>
+    <div class="mt-3 pb-3">
+      <button type="submit" class="btn btn-primary">
+        Actualizar <i class="bi bi-arrow-clockwise"></i>
+      </button>
+    </div>
+  </form>
+  <div class="pb-3">
+    <button
+      type="button"
+      class="btn btn-danger"
+      id="delete_participante"
+      data-email="{{ user.email }}"
+    >
+      Eliminar cuenta <i class="bi bi-trash-fill"></i>
+    </button>
+  </div>
+</main>
+{{> footer}}

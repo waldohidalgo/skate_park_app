@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+}
+main {
+  background: #ffdc43;
+
+  text-align: center;
+}
+
+td,
+th {
+  vertical-align: middle !important;
+}
+td div {
+  background-size: cover;
+  width: 60px;
+  height: 60px;
+}
+
+input {
+  text-align: center;
+}

@@ -1,0 +1,8 @@
+.page_register_main {
+  font-family: "Ubuntu", sans-serif;
+}
+
+#register_form {
+  max-width: 500px;
+  margin-inline: auto;
+}

@@ -1,0 +1,95 @@
+{{> header}}
+<main class="page_register_main">
+  <div class="py-4">
+    <h2>Registro</h2>
+    <hr class="w-50" />
+
+    <form id="register_form">
+      <div>
+        <div class="form-group row m-auto">
+          <div class="form-group col-12 col-sm-6">
+            <label for="register_name">Nombre</label>
+            <input
+              name="nombre"
+              class="form-control m-auto"
+              id="register_name"
+              required
+              placeholder="Ingresa tu nombre"
+            />
+          </div>
+          <div class="form-group col-12 col-sm-6">
+            <label for="register_email">Email</label>
+            <input
+              name="email"
+              type="email"
+              class="form-control m-auto"
+              id="register_email"
+              required
+              placeholder="Ingresa tu email"
+            />
+          </div>
+        </div>
+        <div class="form-group row mx-auto mt-sm-3">
+          <div class="form-group col-12 col-sm-6">
+            <label for="register_experience">Años de experiencia</label>
+            <input
+              name="anos_experiencia"
+              type="number"
+              class="form-control m-auto"
+              id="register_experience"
+              placeholder="Ingresa tus años de experiencia"
+              min="0"
+              required
+            />
+          </div>
+          <div class="form-group col-12 col-sm-6">
+            <label for="register_specialty">Especialidad</label>
+            <input
+              name="especialidad"
+              class="form-control m-auto"
+              id="register_specialty"
+              required
+              placeholder="Ingresa tu especialidad"
+            />
+          </div>
+        </div>
+        <div class="form-group mx-auto mt-sm-3">
+          <label for="register_photo" class="d-block mb-3"
+            >Foto de perfil</label
+          >
+          <input name="foto" type="file" id="register_photo" required />
+        </div>
+        <div class="form-group row mx-auto mt-sm-3">
+          <div class="form-group col-12 col-sm-6">
+            <label for="register_password">Password</label>
+            <input
+              name="password"
+              class="form-control m-auto"
+              id="register_password"
+              required
+              type="password"
+              placeholder="Ingresa tu password"
+            />
+          </div>
+          <div class="form-group col-12 col-sm-6">
+            <label for="register_password2">Repita la password</label>
+            <input
+              name="password2"
+              class="form-control m-auto"
+              id="register_password2"
+              required
+              type="password"
+              placeholder="Repita tu password"
+            />
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success my-3">
+        Registrarme <i class="bi bi-person-plus-fill"></i>
+      </button>
+    </form>
+    <p>{{> btn_login}}</p>
+  </div>
+</main>
+<script type="module" src="/public/js/pages/registerParticipante.js"></script>
+{{> footer}}

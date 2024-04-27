@@ -1,0 +1,35 @@
+{{> header}}
+<main class="page_home_main">
+  <div class="py-4 container page_home_container">
+    <h2>Lista de participantes</h2>
+    <hr />
+    <div class="table-responsive">
+      <table class="table table-dark mb-0">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Foto</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Años de experiencia</th>
+            <th scope="col">Especialidad</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody id="tbody_participantes">
+          <tr>
+            <th colspan="6">
+              <div class="loader"></div>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="page_home_container_buttons mt-3">
+      {{> btn_login}}
+
+      {{> btn_register}}
+    </div>
+  </div>
+</main>
+<script type="module" src="/public/js/pages/home.js"></script>
+{{> footer}}

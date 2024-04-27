@@ -1,0 +1,55 @@
+header {
+  font-family: "Carter One", system-ui;
+  background-color: #eee;
+}
+h1 {
+  width: fit-content;
+  margin-inline: auto;
+}
+.header_contenedor_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.header_contenedor_logo a {
+  text-decoration: none;
+  color: black;
+}
+.header_logo_icono {
+  border-radius: 50%;
+  padding: 5px;
+  border: 1px solid black;
+  background-color: #fff;
+}
+.header_logo {
+  animation: rotar 4s infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes rotar {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(100deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.separador_header {
+  margin-top: 0.5rem;
+  width: 100%;
+  height: 10px;
+  border: 1px solid black;
+  background: linear-gradient(
+    90deg,
+    #ffdc43 0%,
+    #ffdc43 50%,
+    #4a4a4a 50%,
+    #4a4a4a 100%
+  );
+}

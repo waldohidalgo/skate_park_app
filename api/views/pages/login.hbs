@@ -1,0 +1,54 @@
+{{> header}}
+<main class="page_login_main">
+  <div class="py-5 container">
+    <h2>Iniciar Sesión</h2>
+    <hr class="w-50" />
+
+    <form class="login_page_form">
+      <div class="input-group mb-3">
+        <label
+          class="input-group-text login_page_form_label bg-dark text-white"
+          id="basic-addon1"
+          for="page_login_email_input"
+          >Email</label
+        >
+        <input
+          name="email"
+          type="text"
+          id="page_login_email_input"
+          class="form-control"
+          placeholder="Ingresa aquí tu email"
+          aria-label="email"
+          aria-describedby="basic-addon1"
+          required
+        />
+      </div>
+      <div class="input-group mb-3">
+        <label
+          class="input-group-text login_page_form_label bg-dark text-white"
+          id="basic-addon2"
+          for="page_login_password_input"
+          >Password</label
+        >
+        <input
+          id="page_login_password_input"
+          name="password"
+          type="password"
+          class="form-control"
+          placeholder="Ingresa aquí tu password"
+          aria-label="password"
+          aria-describedby="basic-addon2"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary my-3">Ingresar</button>
+    </form>
+    <div class="page_login_register_no_account">
+      <p>¿Aún no tienes cuenta? 🤔</p>
+      {{> btn_register}}
+    </div>
+  </div>
+</main>
+{{> footer}}
+<script type="module" src="/public/js/pages/login.js"></script>

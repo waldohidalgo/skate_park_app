@@ -1,0 +1,6 @@
+.img_expirado {
+  display: block;
+  width: 80%;
+  margin-inline: auto;
+  max-width: 300px;
+}

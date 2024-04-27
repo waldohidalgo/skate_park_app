@@ -1,0 +1,24 @@
+.participante_foto {
+  width: 60px;
+  aspect-ratio: 1/1;
+}
+
+.participante_foto img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+.page_home_main {
+  font-family: "Ubuntu", sans-serif;
+}
+.page_home_container_buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.page_home_container {
+  max-width: 600px;
+  margin-inline: auto;
+}
