@@ -1,4 +1,9 @@
 /* HTML: <div class="loader"></div> */
+.container_loader {
+  display: flex;
+  align-items: center;
+  height: 75px;
+}
 .loader {
   margin-inline: auto;
   width: 50px;
