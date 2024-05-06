@@ -2,6 +2,7 @@ import getAllDataParticipantesQuery from "../queries/getAllDataParticipantesQuer
 import path from "path";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
+import bcrypt from "bcrypt";
 
 const secretKey = process.env.SECRET_KEY_JWT;
 export default async function loginUser(req, res) {
@@ -19,7 +20,8 @@ export default async function loginUser(req, res) {
       res.status(400).send("El email no existe");
       return;
     }
-    if (participante.password !== password) {
+    const isValidPassword = await bcrypt.hash(password, participante.password);
+    if (!isValidPassword) {
       res.status(400).send("La contraseña es incorrecta");
       return;
     }

@@ -2,10 +2,13 @@
 
 Repositorio con el código solución de la prueba con la que se finaliza el módulo 8 **Implementación de API backend Node Express** de la beca dada por Talento Digital para Chile **Desarrollo de aplicaciones Full Stack Javascript Trainee** y dictada por Desafío Latam.
 
+Incorporo bcrypt para el almacenamiento encriptado de passwords en la base de datos
+
 ## Tabla de Contenido
 
 - [Solución Completa de la Prueba - Skate Park](#solución-completa-de-la-prueba---skate-park)
   - [Tabla de Contenido](#tabla-de-contenido)
+  - [Librerías utilizadas](#librerías-utilizadas)
   - [Deploy](#deploy)
   - [Requisitos](#requisitos)
   - [Diagrama de Flujo](#diagrama-de-flujo)
@@ -40,6 +43,19 @@ Repositorio con el código solución de la prueba con la que se finaliza el mód
   - [Extra](#extra)
     - [1. Ruta para resetear la data en la base de datos y borrar las imagenes](#1-ruta-para-resetear-la-data-en-la-base-de-datos-y-borrar-las-imagenes)
     - [2. Script para resetear la data cada 30 minutos](#2-script-para-resetear-la-data-cada-30-minutos)
+
+## Librerías utilizadas
+
+| Librerias Utilizadas |
+| -------------------- |
+| bcrypt               |
+| bootstrap-icons      |
+| express              |
+| express-fileupload   |
+| express-handlebars   |
+| jsonwebtoken         |
+| pg                   |
+| uuid                 |
 
 ## Deploy
 

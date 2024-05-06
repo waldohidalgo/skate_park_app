@@ -30,6 +30,7 @@ window.onload = () => {
       }
       throw respuesta;
     } catch (error) {
+      console.log(error);
       if (error.response.status === 413) {
         Swal.fire({
           title: "Error",

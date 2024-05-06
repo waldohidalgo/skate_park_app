@@ -2,6 +2,7 @@ import getAllDataParticipantesQuery from "../queries/getAllDataParticipantesQuer
 import jwt from "jsonwebtoken";
 import "dotenv/config";
 import putEditParticipanteQuery from "../queries/putEditParticipanteQuery.js";
+import bcrypt from "bcrypt";
 
 export default async function putEditParticipante(req, res) {
   try {
@@ -47,12 +48,14 @@ export default async function putEditParticipante(req, res) {
         res.status(400).send("El participante no existe");
         return;
       }
+      const saltRounds = 10;
+      const hash = await bcrypt.hash(password, saltRounds);
       const rs = await putEditParticipanteQuery({
         email,
         nombre,
         anos_experiencia,
         especialidad,
-        password,
+        password: hash,
       });
 
       res.status(200).send("data editada");

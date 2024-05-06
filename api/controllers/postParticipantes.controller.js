@@ -1,4 +1,5 @@
 import path from "path";
+import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
 import postParticipantesQuery from "../queries/postParticipantesQuery.js";
 import getAllDataParticipantesQuery from "../queries/getAllDataParticipantesQuery.js";
@@ -46,10 +47,12 @@ export default async function postParticipante(req, res) {
         return;
       }
       try {
+        const saltRounds = 10;
+        const hash = await bcrypt.hash(password, saltRounds);
         const data = await postParticipantesQuery({
           email,
           nombre,
-          password,
+          password: hash,
           anos_experiencia,
           especialidad,
           foto: nombreFoto,
@@ -58,6 +61,7 @@ export default async function postParticipante(req, res) {
 
         res.status(200).send("exito");
       } catch (error) {
+        console.log(error);
         res.status(500).send(error);
       }
     });
